@@ -1,0 +1,67 @@
+ nav {
+    top:0;
+    position: fixed;
+    height: 3rem;
+    width: 100vw;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 1rem;
+    width: 10%;
+}
+
+.toggle {
+    font-size: 1rem;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    display: none;
+}
+
+.toggle:hover {
+    transform: rotate(90deg);
+}
+
+.logo {
+    height: 4rem;
+}
+
+.linksContainer {
+    width: 75%;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.links li {
+    list-style: none;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 1rem;
+    width: 15%;
+}
+
+nav a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    font-weight: bold;
+}
