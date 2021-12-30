@@ -18,7 +18,7 @@
 }
 
 .toggle {
-    font-size: 1rem;
+    font-size: 1.5rem;
     background: transparent;
     border-color: transparent;
     cursor: pointer;
@@ -26,12 +26,12 @@
     display: none;
 }
 
-.toggle:hover {
+.toggleRotate {
     transform: rotate(90deg);
 }
 
 .logo {
-    height: 4rem;
+    height: 3rem;
 }
 
 .linksContainer {
@@ -64,4 +64,29 @@ nav a {
 
 nav a:hover {
     font-weight: bold;
+}
+
+@media screen and (max-width: 625px) {
+    
+    .toggle {
+        display: block;
+    }
+
+    .logo {
+        margin-left: 1rem;
+    }
+
+    .account {
+        width: 20%;
+    }
+
+    .links {
+        flex-direction: column;
+        z-index: 1;
+        width: 100vw;
+        top: 3rem;
+        left: 0;
+        position: absolute;
+        background-color: wheat;
+    }
 }
