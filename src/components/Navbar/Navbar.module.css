@@ -3,7 +3,7 @@
     position: fixed;
     height: 3rem;
     width: 100vw;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--grey);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,8 +13,11 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-left: 1rem;
-    width: 10%;
+    width: 20%;
+}
+
+.headerName {
+    font-size: 1.1rem;
 }
 
 .toggle {
@@ -22,7 +25,7 @@
     background: transparent;
     border-color: transparent;
     cursor: pointer;
-    transition: all 0.3s linear;
+    transition: var(--transition);
     display: none;
 }
 
@@ -35,7 +38,7 @@
 }
 
 .linksContainer {
-    width: 75%;
+    width: 70%;
 }
 
 .links {
@@ -53,23 +56,28 @@
     align-items: center;
     justify-content: right;
     margin-right: 1rem;
-    width: 15%;
+    width: 10%;
 }
 
 nav a {
     font-size: 1.1rem;
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 
 nav a:hover {
     font-weight: bold;
 }
 
-@media screen and (max-width: 625px) {
+.noBorder {
+    border-bottom: none;
+}
+
+@media screen and (max-width: 740px) {
     
     .toggle {
         display: block;
+        margin-left: 1rem;
     }
 
     .logo {
@@ -87,6 +95,19 @@ nav a:hover {
         top: 3rem;
         left: 0;
         position: absolute;
-        background-color: wheat;
+        background-color: white;
+        border-bottom: 1px solid var(--grey);
+        align-items: flex-start;
+    }
+
+    .links li {
+        width: 100vw;
+    }
+
+    .links a {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+        display: block;
+        padding: 0.5rem 2rem;
     }
 }

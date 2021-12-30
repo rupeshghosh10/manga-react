@@ -21,14 +21,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className={toggle ? styles.noBorder : ''}>
       <div className={styles.header}>
         <button className={`${styles.toggle} ${toggle ? styles.toggleRotate : ''}`} onClick={handleToggle}>
           <FaBars />
         </button>
         <img src={logo} alt="logo" className={styles.logo} />
+        <h2 className={styles.headerName}>MangaReact</h2>
       </div>
-      {(toggle || screenWidth > 625) &&
+      {(toggle || screenWidth > 740) &&
         <div className={styles.linksContainer}>
           <ul className={styles.links}>
             <li>
