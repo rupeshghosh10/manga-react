@@ -1,0 +1,20 @@
+.mangaInfo {
+    width: 80vw;
+    height: 80vh;
+    margin-left: 10vw;
+    margin-top: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.mangaDetails {
+    padding: 1rem;
+}

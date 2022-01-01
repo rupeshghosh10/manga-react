@@ -2,6 +2,7 @@ import { FaBars } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 import logo from '../../Icon.svg';
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -29,26 +30,26 @@ const Navbar = () => {
         <img src={logo} alt="logo" className={styles.logo} />
         <h2 className={styles.headerName}>MangaReact</h2>
       </div>
-      {(toggle || screenWidth > 740) &&
+      {(toggle || screenWidth > 750) &&
         <div className={styles.linksContainer}>
           <ul className={styles.links}>
             <li>
-              <a href="/">Discover</a>
+              <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Discover</NavLink>
             </li>
             <li>
-              <a href="/">Search</a>
+              <NavLink to="/search" className={({ isActive }) => isActive ? styles.active : ''}>Search</NavLink>
             </li>
             <li>
-              <a href="/">History</a>
+              <NavLink to="/history" className={({ isActive }) => isActive ? styles.active : ''}>History</NavLink>
             </li>
             <li>
-              <a href="/">Saved</a>
+              <NavLink to="/saved" className={({ isActive }) => isActive ? styles.active : ''}>Saved</NavLink>
             </li>
             <li>
-              <a href="/">Random</a>
+              <NavLink to="/random" className={({ isActive }) => isActive ? styles.active : ''}>Random</NavLink>
             </li>
             <li>
-              <a href="/">Github</a>
+              <a href="https://github.com/RupeshGhosh10/manga-react">Github</a>
             </li>
           </ul>
         </div>}
