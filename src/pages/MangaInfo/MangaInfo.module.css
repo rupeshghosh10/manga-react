@@ -1,8 +1,8 @@
 .mangaInfo {
-    width: 80vw;
-    height: 80vh;
-    margin-left: 10vw;
-    margin-top: 10vw;
+    width: 70vw;
+    height: 85vh;
+    margin-left: 15vw;
+    margin-top: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,11 +10,38 @@
     box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
 }
 
-.image {
-    max-width: 100%;
-    height: auto;
+.imageBox {
+    /* background-color: rgb(191, 255, 234); */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mangaDetails {
+    /* background-color: rgb(255, 204, 185); */
+    width: 60%;
+    height: 100%;
+}
+
+.mainDetails {
     padding: 1rem;
+}
+
+.synopsis {
+    padding: 1rem;
+}
+
+.image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+    
+    .mangaInfo {
+        width: 80vw;
+        margin-left: 10vw;
+    }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import helper from '../../service/helper';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './MangaInfo.module.css';
 
@@ -7,7 +8,10 @@ const MangaInfo = ({ manga }) => {
   const [coverName, setCoverName] = useState(null);
 
   useEffect(() => {
-    const coverId = manga.relationships.find(x => x.type === 'cover_art').id;
+    console.log(manga);
+
+    const coverId = helper.findCoverId(manga);
+
     mangadexApi.getCover(coverId).then(res => {
       setCoverName(res.data.attributes.fileName);
     });
@@ -20,25 +24,28 @@ const MangaInfo = ({ manga }) => {
           <img src={`https://uploads.mangadex.org/covers/${manga.id}/${coverName}`}
             alt="cover"
             className={styles.image} />}
-        <table>
-          <tbody>
-            <tr>
-              <th>Author</th>
-              <td>Rupesh Ghosh</td>
-            </tr>
-            <tr>
-              <th>Status</th>
-              <td>{manga.attributes.status}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
       <div className={styles.mangaDetails}>
-        <div className={styles.title}>
-          {manga.attributes.title.en}
+        <div className={styles.mainDetails}>
+          <div className={styles.title}>
+            <h2>{manga.attributes.title.en}</h2>
+          </div>
+          <div>
+            {manga.attributes.lastChapter && <p>Chapter: {manga.attributes.lastChapter}</p>}
+          </div>
+          <div>
+            <p>Status: {manga.attributes.status}</p>
+          </div>
+          <div>
+            <p>Author: Rupesh Ghosh</p>
+          </div>
+          <div>
+            <p>Artist: Rupesh GHosh</p>
+          </div>
         </div>
         <div className={styles.synopsis}>
-          {manga.attributes.description.en}
+          <h4>Description</h4>
+          <p>{manga.attributes.description.en}</p>
         </div>
       </div>
     </div>
