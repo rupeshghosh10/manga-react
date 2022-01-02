@@ -15,31 +15,29 @@ const MangaInfo = ({ manga }) => {
           alt="cover"
           className={styles.image} />
       </div>
-      <div className={styles.mangaDetails}>
-        <div className={styles.mainDetails}>
-          <div className={styles.title}>
-            <h2>{manga.attributes.title.en}</h2>
-          </div>
-          <div>
-            <p className={styles.status}>{manga.attributes.status}</p>
-          </div>
-          <div>
-            <p>Chapter: {manga.attributes.lastChapter}</p>
-          </div>
-          <div>
-            <p>Author: {author.attributes.name}</p>
-          </div>
-          <div>
-            <p>Artist: {artist.attributes.name}</p>
-          </div>
+      <div className={styles.mainDetails}>
+        <div>
+          <h2 className={styles.title}>{manga.attributes.title.en}</h2>
         </div>
-        <div className={styles.tags}>
-          {tags.map((tag, i) => <div key={i} className={styles.tag}>{tag.attributes.name.en}</div>)}
+        <div>
+          <p className={styles.status}>{manga.attributes.status}</p>
         </div>
-        <div className={styles.synopsis}>
-          <h4>Description</h4>
-          <p>{manga.attributes.description.en}</p>
+        <div>
+          <p>Chapter: {manga.attributes.lastChapter}</p>
         </div>
+        <div>
+          <p>Author: {author.attributes.name}</p>
+        </div>
+        <div>
+          <p>Artist: {artist.attributes.name}</p>
+        </div>
+      </div>
+      <div className={styles.tags}>
+        {tags.map((tag, i) => <div key={i} className={styles.tag}>{tag.attributes.name.en}</div>)}
+      </div>
+      <div className={styles.synopsis}>
+        <h4>Description</h4>
+        <p className={styles.description}>{manga.attributes.description.en}</p>
       </div>
     </div>
   );
