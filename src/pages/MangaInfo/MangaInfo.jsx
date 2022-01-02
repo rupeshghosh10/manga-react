@@ -25,7 +25,7 @@ const MangaInfo = ({ manga }) => {
             {manga.attributes.lastChapter && <p>Chapter: {manga.attributes.lastChapter}</p>}
           </div>
           <div>
-            <p>Status: {manga.attributes.status}</p>
+            <p className={styles.status}>{manga.attributes.status}</p>
           </div>
           <div>
             <p>Author: {author.attributes.name}</p>
