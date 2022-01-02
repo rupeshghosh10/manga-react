@@ -6,6 +6,8 @@ import styles from './MangaInfo.module.css';
 const MangaInfo = ({ manga }) => {
 
   const [coverName, setCoverName] = useState(null);
+  const [author, setAuthor] = useState(null);
+  const [artist, setArtist] = useState(null); 
 
   useEffect(() => {
     console.log(manga);

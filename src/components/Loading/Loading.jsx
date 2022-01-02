@@ -6,9 +6,10 @@ const Loading = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      progress >= 100 ? setProgress(5) : setProgress(progress + 2);
-    }, 200)
+    const timer = setTimeout(() => {
+      progress >= 100 ? setProgress(0) : setProgress(progress + 2);
+    }, 200);
+    return () => clearTimeout(timer);
   }, [progress])
 
   const size = 200;

@@ -3,6 +3,7 @@
 :root {
   --grey: #ccc;
   --black: #222;
+  --white: #fff;
   --transition: all 0.1s linear;
 }
 

@@ -18,9 +18,9 @@ const Random = () => {
   if (isLoading) {
     return <Loading />
   }
-  else {
-    return <> {manga && <MangaInfo manga={manga} />} </>
-  }
+  
+  return <> {manga && <MangaInfo manga={manga} />} </>
+
 }
 
 export default Random;
