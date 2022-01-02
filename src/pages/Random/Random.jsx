@@ -7,13 +7,19 @@ const Random = () => {
 
   const [manga, setManga] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     mangadexApi.getRandomManga().then(res => {
-      setManga(res.data);
-      setIsLoading(false);
+      if (res.data.attributes.originalLanguage === 'ja' && counter <= 10) {
+        setManga(res.data);
+        setIsLoading(false);
+      }
+      else {
+        setCounter(counter + 1);
+      }
     });
-  }, []);
+  }, [counter]);
 
   if (isLoading) {
     return <Loading />

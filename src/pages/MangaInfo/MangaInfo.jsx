@@ -1,31 +1,20 @@
 import { useEffect, useState } from 'react';
-import helper from '../../service/helper';
-import mangadexApi from '../../service/mangadexApi';
+import helper from '../../util/helper';
 import styles from './MangaInfo.module.css';
 
 const MangaInfo = ({ manga }) => {
 
-  const [coverName, setCoverName] = useState(null);
-  const [author, setAuthor] = useState(null);
-  const [artist, setArtist] = useState(null); 
-
-  useEffect(() => {
-    console.log(manga);
-
-    const coverId = helper.findCoverId(manga);
-
-    mangadexApi.getCover(coverId).then(res => {
-      setCoverName(res.data.attributes.fileName);
-    });
-  }, []);
+  const cover = helper.findCover(manga);
+  const author = helper.findAuthor(manga);
+  const artist = helper.findArtist(manga);
+  const tags = manga.attributes.tags;
 
   return (
     <div className={styles.mangaInfo}>
       <div className={styles.imageBox}>
-        {coverName &&
-          <img src={`https://uploads.mangadex.org/covers/${manga.id}/${coverName}`}
-            alt="cover"
-            className={styles.image} />}
+        <img src={`https://uploads.mangadex.org/covers/${manga.id}/${cover.attributes.fileName}`}
+          alt="cover"
+          className={styles.image} />
       </div>
       <div className={styles.mangaDetails}>
         <div className={styles.mainDetails}>
@@ -39,11 +28,14 @@ const MangaInfo = ({ manga }) => {
             <p>Status: {manga.attributes.status}</p>
           </div>
           <div>
-            <p>Author: Rupesh Ghosh</p>
+            <p>Author: {author.attributes.name}</p>
           </div>
           <div>
-            <p>Artist: Rupesh GHosh</p>
+            <p>Artist: {artist.attributes.name}</p>
           </div>
+        </div>
+        <div className={styles.tags}>
+          {tags.map((tag, i) => <div key={i} className={styles.tag}>{tag.attributes.name.en}</div>)}
         </div>
         <div className={styles.synopsis}>
           <h4>Description</h4>

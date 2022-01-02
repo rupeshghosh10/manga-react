@@ -11,7 +11,6 @@
 }
 
 .imageBox {
-    /* background-color: rgb(191, 255, 234); */
     width: 40%;
     height: 100%;
     display: flex;
@@ -20,17 +19,24 @@
 }
 
 .mangaDetails {
-    /* background-color: rgb(255, 204, 185); */
     width: 60%;
     height: 100%;
 }
 
-.mainDetails {
+.mainDetails, .synopsis, .tags {
     padding: 1rem;
 }
 
-.synopsis {
-    padding: 1rem;
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid var(--black);
+    border-radius: 4px;
 }
 
 .image {
