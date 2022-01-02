@@ -1,6 +1,5 @@
 .mangaInfo {
     width: 70vw;
-    height: 85vh;
     margin-left: 15vw;
     margin-top: 5rem;
     display: flex;
@@ -53,5 +52,6 @@
     .mangaInfo {
         width: 80vw;
         margin-left: 10vw;
+        flex-direction: column;
     }
 }

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import helper from '../../util/helper';
 import styles from './MangaInfo.module.css';
 
@@ -22,10 +21,10 @@ const MangaInfo = ({ manga }) => {
             <h2>{manga.attributes.title.en}</h2>
           </div>
           <div>
-            {manga.attributes.lastChapter && <p>Chapter: {manga.attributes.lastChapter}</p>}
+            <p className={styles.status}>{manga.attributes.status}</p>
           </div>
           <div>
-            <p className={styles.status}>{manga.attributes.status}</p>
+            <p>Chapter: {manga.attributes.lastChapter}</p>
           </div>
           <div>
             <p>Author: {author.attributes.name}</p>
