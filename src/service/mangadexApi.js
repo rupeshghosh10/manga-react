@@ -1,15 +1,22 @@
 import axios from 'axios';
 
-const baseUrl = 'https://api.mangadex.org/';
+const baseUrl = 'https://api.mangadex.org';
 
 const getRandomManga = async () => {
-  const req = axios.get(`${baseUrl}manga/random?includes[]=author&includes[]=artist&includes[]=cover_art`);
+  const req = axios.get(`${baseUrl}/manga/random?includes[]=author&includes[]=artist&includes[]=cover_art`);
+  const res = await req;
+  return res.data;
+}
+
+const getChapterList = async (mangaId) => {
+  const req = axios.get(`${baseUrl}/chapter?manga=${mangaId}`);
   const res = await req;
   return res.data;
 }
 
 const mangadexApi = {
-  getRandomManga
+  getRandomManga,
+  getChapterList
 }
 
 export default mangadexApi;
