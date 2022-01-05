@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import MangaCover from '../../components/MangaCover/MangaCover';
 import Tag from '../../components/Tag/Tag';
@@ -17,7 +18,6 @@ const MangaInfo = ({ manga }) => {
   useEffect(() => {
     mangadexApi.getChapterList(manga.id).then(res => {
       setChapterList(res.data);
-      console.log(res.data);
     })
   }, [manga.id]);
 
@@ -25,7 +25,7 @@ const MangaInfo = ({ manga }) => {
     <>
       <div className={styles.mangaInfo}>
         <div className={styles.imageBox}>
-            <MangaCover mangaId={manga.id} fileName={cover.attributes.fileName} />
+          <MangaCover mangaId={manga.id} fileName={cover.attributes.fileName} />
         </div>
         <div className={styles.mainDetails}>
           <div>
@@ -53,7 +53,19 @@ const MangaInfo = ({ manga }) => {
         </div>
       </div>
       <div className={styles.chapterList}>
-        {chapterList && chapterList.map((chapter, i) => <p key={i}>Chapter {chapter.attributes.chapter}: {chapter.attributes.title}</p>)}
+        {chapterList && chapterList.map((chapter, i) => {
+          return (
+            <div className={styles.chapterDetail} key={i}>
+              <div className={styles.chapter}>
+                <p>Chapter {chapter.attributes.chapter} : {chapter.attributes.title}</p>
+                <p className={styles.chapterDate}>{moment(chapter.attributes.updatedAt).format('MMM DD, YYYY')}</p>
+              </div>
+              <div className={styles.scanlationGroup}>
+                <p>{helper.findScanlationGroup(chapter).attributes.name}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </>
   );

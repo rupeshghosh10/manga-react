@@ -9,7 +9,7 @@ const getRandomManga = async () => {
 }
 
 const getChapterList = async (mangaId) => {
-  const req = axios.get(`${baseUrl}/chapter?manga=${mangaId}`);
+  const req = axios.get(`${baseUrl}/chapter?manga=${mangaId}&translatedLanguage[]=en&includes[]=scanlation_group`);
   const res = await req;
   return res.data;
 }

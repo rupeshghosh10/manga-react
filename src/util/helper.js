@@ -1,5 +1,5 @@
-const find = (manga, type) => {
-  return manga.relationships.find(x => x.type == type);
+const find = (object, type) => {
+  return object.relationships.find(x => x.type === type);
 }
 
 const findCover = (manga) => {
@@ -14,10 +14,15 @@ const findArtist = (manga) => {
   return find(manga, 'artist');
 }
 
+const findScanlationGroup = (chapter) => {
+  return find(chapter, 'scanlation_group')
+}
+
 const helper = {
   findCover,
   findAuthor,
-  findArtist
+  findArtist,
+  findScanlationGroup
 }
 
 export default helper;

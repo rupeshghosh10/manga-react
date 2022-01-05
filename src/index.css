@@ -2,6 +2,7 @@
 
 :root {
   --grey: #ccc;
+  --dark-grey: #666;
   --black: #222;
   --white: #fff;
   --transition: all 0.1s linear;
