@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import MangaCover from '../../components/MangaCover/MangaCover';
+import Tag from '../../components/Tag/Tag';
 import mangadexApi from '../../service/mangadexApi';
 import helper from '../../util/helper';
 import styles from './MangaInfo.module.css';
@@ -23,9 +25,7 @@ const MangaInfo = ({ manga }) => {
     <>
       <div className={styles.mangaInfo}>
         <div className={styles.imageBox}>
-          <img src={`https://uploads.mangadex.org/covers/${manga.id}/${cover.attributes.fileName}`}
-            alt="cover"
-            className={styles.image} />
+            <MangaCover mangaId={manga.id} fileName={cover.attributes.fileName} />
         </div>
         <div className={styles.mainDetails}>
           <div>
@@ -45,15 +45,15 @@ const MangaInfo = ({ manga }) => {
           </div>
         </div>
         <div className={styles.tags}>
-          {tags.map((tag, i) => <div key={i} className={styles.tag}>{tag.attributes.name.en}</div>)}
+          {tags.map((tag, i) => <Tag key={i} tag={tag.attributes.name.en} />)}
         </div>
         <div className={styles.synopsis}>
           <h4>Description</h4>
           <p className={styles.description}>{manga.attributes.description.en}</p>
         </div>
       </div>
-      <div>
-        {chapterList && chapterList.map((chapter, i) => <p key={i}>Chapter {i+1}: {chapter.attributes.title}</p>)}
+      <div className={styles.chapterList}>
+        {chapterList && chapterList.map((chapter, i) => <p key={i}>Chapter {chapter.attributes.chapter}: {chapter.attributes.title}</p>)}
       </div>
     </>
   );

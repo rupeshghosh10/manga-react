@@ -1,21 +1,35 @@
 .mangaInfo {
     width: 70vw;
+    height: 75vh;
     margin-left: 15vw;
-    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-top: 4rem;
     border-radius: 4px;
     box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
     display: grid;
     grid-template-columns: 40% 60%;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto 1fr;
+}
+
+.chapterList {
+    width: 70vw;
+    margin-left: 15vw;
+    margin-top: 1rem;
+    border-radius: 4px;
+    box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .imageBox {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     grid-row-start: 1;
     grid-row-end: span 3;
+    height: 100%;
 }
 
 .mainDetails, .synopsis, .tags {
@@ -44,31 +58,21 @@
     grid-column: 2;
 }
 
-.tag {
-    padding: 0.2rem;
-    margin: 0.2rem;
-    border: 1px solid var(--black);
-    border-radius: 4px;
-    height: 1.4rem;
-}
-
-.image {
-    max-height: 100%;
-    max-width: 100%;
-}
-
 .description {
     text-align: justify;
+    font-size: 0.9rem;
+    word-wrap: break-word;
 }
 
 @media screen and (max-width: 750px) {
     
     .mangaInfo {
-        width: 90vw;
-        margin-left: 5vw;
+        width: 95vw;
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
         margin-top: 4rem;
         flex-direction: column;
-        grid-template-columns: 35% 65%;
+        grid-template-columns: 40% 60%;
     }
 
     .mainDetails p {
@@ -87,13 +91,8 @@
         grid-column-start: 2;
         grid-column-end: span 3;
         padding-top: 0rem;
+        width: 65%;
     }    
-
-    .tag {
-        font-size: 0.8rem;
-        padding: 0.1rem;
-        margin: 0.1rem;
-    }
 
     .synopsis {
         grid-column-start: 1;
@@ -102,6 +101,8 @@
 
     .description {
         font-size: 0.85rem;
+        width: calc(95vw - 2rem);
+        text-overflow: ellipsis;
     }
 
 }
