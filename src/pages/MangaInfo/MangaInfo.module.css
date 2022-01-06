@@ -38,6 +38,10 @@
     color: var(--dark-grey);
 }
 
+.scanlationGroup {
+    text-align: right;
+}
+
 .imageBox {
     display: flex;
     align-items: center;
@@ -83,11 +87,27 @@
     
     .mangaInfo {
         width: 95vw;
+        height: auto;
         margin-left: 2.5vw;
         margin-right: 2.5vw;
         margin-top: 4rem;
         flex-direction: column;
         grid-template-columns: 40% 60%;
+    }
+
+    .chapterList {
+        width: 80vw;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .scanlationGroup {
+        padding-left: 1rem;
+    }
+
+    .chapterDetail p {
+        font-size: 0.85rem;
     }
 
     .mainDetails p {

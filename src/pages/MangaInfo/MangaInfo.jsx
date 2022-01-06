@@ -13,7 +13,7 @@ const MangaInfo = ({ manga }) => {
   const artist = helper.findArtist(manga);
   const tags = manga.attributes.tags;
 
-  const [chapterList, setChapterList] = useState(null);
+  const [chapterList, setChapterList] = useState([]);
 
   useEffect(() => {
     mangadexApi.getChapterList(manga.id).then(res => {
@@ -52,8 +52,8 @@ const MangaInfo = ({ manga }) => {
           <p className={styles.description}>{manga.attributes.description.en}</p>
         </div>
       </div>
-      <div className={styles.chapterList}>
-        {chapterList && chapterList.map((chapter, i) => {
+      {chapterList.length !== 0 && <div className={styles.chapterList}>
+        {chapterList.map((chapter, i) => {
           return (
             <div className={styles.chapterDetail} key={i}>
               <div className={styles.chapter}>
@@ -66,7 +66,7 @@ const MangaInfo = ({ manga }) => {
             </div>
           )
         })}
-      </div>
+      </div>}
     </>
   );
 }
