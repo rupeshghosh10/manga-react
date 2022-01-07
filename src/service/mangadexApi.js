@@ -19,7 +19,8 @@ const searchManga = async (title, { controller }) => {
       originalLanguage: ['ja'],
       availableTranslatedLanguage: ['en'],
       title: title,
-      contentRating: ['safe', 'suggestive', 'erotica']
+      contentRating: ['safe', 'suggestive', 'erotica'],
+      includes: ['author', 'artist', 'cover_art']
     }
   });
   const res = await req;

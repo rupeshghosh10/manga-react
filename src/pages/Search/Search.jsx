@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import MangaBox from '../../components/MangaBox/MangaBox';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './Search.module.css';
 
@@ -34,8 +35,8 @@ const Search = () => {
       {mangaList.length !== 0 &&
         <ul className={styles.mangaList}>
           {mangaList.map((manga, i) => (
-            <li key={i}>
-              {manga.attributes.title.en}
+            <li className={styles.manga} key={i}>
+              <MangaBox manga={manga} noOfChapter={manga.attributes.lastChapter} />
             </li>
           ))}
         </ul>}

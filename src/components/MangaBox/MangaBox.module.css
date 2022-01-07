@@ -1,0 +1,94 @@
+.mangaBox {
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto 1fr;
+}
+
+.imageBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    height: 100%;
+}
+
+.details, .synopsis, .tags {
+    padding: 0.5rem 1rem;
+}
+
+.details {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.synopsis {
+    grid-row: 3;
+    grid-column: 2;
+}
+
+.status {
+    text-transform: capitalize;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.synopsis p {
+    text-align: justify;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 12;
+}
+
+@media screen and (max-width: 750px) {
+
+    .scanlationGroup {
+        padding-left: 1rem;
+    }
+
+    .chapterDetail p {
+        font-size: 0.85rem;
+    }
+
+    .mainDetails p {
+        font-size: 0.9rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .imageBox {
+        grid-row-end: 3;
+    }
+
+    .tags {
+        grid-column-start: 2;
+        grid-column-end: span 3;
+        padding-top: 0rem;
+        width: 65%;
+    }    
+
+    .synopsis {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    }
+
+    .synopsis p {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 6;
+    }
+
+}

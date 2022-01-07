@@ -14,7 +14,8 @@ const Navbar = () => {
   }
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    if (screenWidth <= 750)
+      setToggle(!toggle);
   }
 
   useEffect(() => {
