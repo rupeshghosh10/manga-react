@@ -11,7 +11,9 @@ const Random = () => {
 
   useEffect(() => {
     mangadexApi.getRandomManga().then(res => {
-      if (res.data.attributes.originalLanguage === 'ja' && counter <= 10) {
+      if (res.data.attributes.originalLanguage === 'ja' &&
+        res.data.attributes.contentRating !== 'pornographic' &&
+        counter <= 10) {
         setManga(res.data);
         setIsLoading(false);
       }
@@ -24,8 +26,8 @@ const Random = () => {
   if (isLoading) {
     return <Loading />
   }
-  
-  return <> {manga && <MangaInfo manga={manga} />} </>
+
+  return <> <MangaInfo manga={manga} /> </>
 
 }
 

@@ -32,13 +32,13 @@ const Search = () => {
         <input placeholder='Search...' className={styles.searchInput} value={searchText} onChange={handleTextChange} />
       </div>
       {mangaList.length !== 0 &&
-        <div className={styles.mangaList}>
+        <ul className={styles.mangaList}>
           {mangaList.map((manga, i) => (
-            <div key={i}>
+            <li key={i}>
               {manga.attributes.title.en}
-            </div>
+            </li>
           ))}
-        </div>}
+        </ul>}
     </>
   );
 }
