@@ -1,10 +1,12 @@
 .mangaBox {
     height: 100%;
     border-radius: 4px;
-    box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: auto auto 1fr;
+    background-color: var(--light-gray);
+    border: 1px solid var(--grey);
+    overflow: hidden;;
 }
 
 .imageBox {
@@ -17,12 +19,20 @@
 }
 
 .details, .synopsis, .tags {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
+}
+
+.title {
+    font-size: 1.1rem;
 }
 
 .details {
     grid-row: 1;
     grid-column: 2;
+}
+
+.details p {
+    font-size: 0.9rem;
 }
 
 .synopsis {
@@ -42,32 +52,38 @@
     grid-column: 2;
 }
 
+.synopsis {
+    overflow: hidden;
+}
+
+.synopsis h4 {
+    font-size: 0.9rem;
+}
+
 .synopsis p {
     text-align: justify;
     font-size: 0.9rem;
     word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 12;
+    line-height: 1.2rem;
 }
 
 @media screen and (max-width: 750px) {
+
+    .mangaBox {
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 1fr auto 1fr;
+    }
 
     .scanlationGroup {
         padding-left: 1rem;
     }
 
-    .chapterDetail p {
-        font-size: 0.85rem;
-    }
-
-    .mainDetails p {
-        font-size: 0.9rem;
+    .details p {
+        font-size: 0.8rem;
     }
 
     .title {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .imageBox {
@@ -88,7 +104,6 @@
 
     .synopsis p {
         font-size: 0.85rem;
-        -webkit-line-clamp: 6;
     }
 
 }

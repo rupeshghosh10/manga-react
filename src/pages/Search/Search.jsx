@@ -19,6 +19,8 @@ const Search = () => {
       mangadexApi.searchManga(searchText, { controller }).then(res => {
         setMangaList(res.data);
         console.log(res.data);
+      }).catch(() => {
+        setMangaList([]);
       });
     }
     else {
@@ -36,7 +38,9 @@ const Search = () => {
         <ul className={styles.mangaList}>
           {mangaList.map((manga, i) => (
             <li className={styles.manga} key={i}>
-              <MangaBox manga={manga} noOfChapter={manga.attributes.lastChapter} />
+              <div className={styles.mangaBox}>
+                <MangaBox manga={manga} noOfChapter={manga.attributes.lastChapter} />
+              </div>
             </li>
           ))}
         </ul>}
