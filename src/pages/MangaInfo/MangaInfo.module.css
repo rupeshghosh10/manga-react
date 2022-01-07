@@ -1,8 +1,8 @@
 .mangaInfo {
     width: 70vw;
-    height: 75vh;
-    margin-left: 15vw;
-    margin-right: 5rem;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 5rem;
     border-radius: 4px;
     box-shadow: 0px 6px 6px -3px rgb(0 0 0 / 20%), 0px 10px 14px 1px rgb(0 0 0 / 14%), 0px 4px 18px 3px rgb(0 0 0 / 12%);
@@ -12,8 +12,9 @@
 }
 
 .chapterList {
-    width: 50vw;
-    margin-left: 24vw;
+    width: 55vw;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1rem 2rem;
@@ -88,17 +89,17 @@
     .mangaInfo {
         width: 95vw;
         height: auto;
-        margin-left: 2.5vw;
-        margin-right: 2.5vw;
-        margin-top: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3.5rem;
         flex-direction: column;
         grid-template-columns: 40% 60%;
     }
 
     .chapterList {
         width: 80vw;
-        margin-left: 8vw;
-        margin-right: 8vw;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0.5rem 0.5rem;
     }
 

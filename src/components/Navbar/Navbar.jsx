@@ -19,6 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('resize', changeWidth);
+    return () => window.removeEventListener('resize', changeWidth);
   }, []);
 
   return (
@@ -34,19 +35,29 @@ const Navbar = () => {
         <div className={styles.linksContainer}>
           <ul className={styles.links}>
             <li>
-              <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Discover</NavLink>
+              <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
+                Discover
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/search" className={({ isActive }) => isActive ? styles.active : ''}>Search</NavLink>
+              <NavLink to="/search" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
+                Search
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/history" className={({ isActive }) => isActive ? styles.active : ''}>History</NavLink>
+              <NavLink to="/history" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
+                History
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/saved" className={({ isActive }) => isActive ? styles.active : ''}>Saved</NavLink>
+              <NavLink to="/saved" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
+                Saved
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/random" className={({ isActive }) => isActive ? styles.active : ''}>Random</NavLink>
+              <NavLink to="/random" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
+                Random
+              </NavLink>
             </li>
             <li>
               <a href="https://github.com/RupeshGhosh10/manga-react">Github</a>

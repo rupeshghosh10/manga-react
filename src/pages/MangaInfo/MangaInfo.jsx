@@ -35,7 +35,7 @@ const MangaInfo = ({ manga }) => {
             <p className={styles.status}>{manga.attributes.status}</p>
           </div>
           <div>
-            {chapterList && <p>Chapter: {chapterList.length}</p>}
+            <p>Chapter: {chapterList.length}</p>
           </div>
           <div>
             <p>Author: {author.attributes.name}</p>
@@ -52,10 +52,10 @@ const MangaInfo = ({ manga }) => {
           <p className={styles.description}>{manga.attributes.description.en}</p>
         </div>
       </div>
-      {chapterList.length !== 0 && <div className={styles.chapterList}>
-        {chapterList.map((chapter, i) => {
-          return (
-            <div className={styles.chapterDetail} key={i}>
+      {chapterList.length !== 0 &&
+        <ul className={styles.chapterList}>
+          {chapterList.map((chapter, i) => (
+            <li className={styles.chapterDetail} key={i}>
               <div className={styles.chapter}>
                 <p>Chapter {chapter.attributes.chapter} : {chapter.attributes.title}</p>
                 <p className={styles.chapterDate}>{moment(chapter.attributes.updatedAt).format('MMM DD, YYYY')}</p>
@@ -63,10 +63,9 @@ const MangaInfo = ({ manga }) => {
               <div className={styles.scanlationGroup}>
                 <p>{helper.findScanlationGroup(chapter).attributes.name}</p>
               </div>
-            </div>
-          )
-        })}
-      </div>}
+            </li>
+          ))}
+        </ul>}
     </>
   );
 }
