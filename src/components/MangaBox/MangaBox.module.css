@@ -27,6 +27,8 @@
     font-weight: bold;
     text-decoration: none;
     color: var(--black);
+    line-height: 1.1rem;
+    margin-bottom: 0.25rem;
 }
 
 .details {

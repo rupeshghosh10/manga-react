@@ -2,9 +2,8 @@ import MangaCover from '../MangaCover/MangaCover';
 import Tag from '../Tag/Tag';
 import helper from '../../util/helper';
 import styles from './MangaBox.module.css';
-import { Link } from 'react-router-dom';
 
-const MangaBox = ({ manga, noOfChapter }) => {
+const MangaBox = ({ manga }) => {
 
   const cover = helper.findCover(manga);
   const author = helper.findAuthor(manga);
@@ -18,13 +17,13 @@ const MangaBox = ({ manga, noOfChapter }) => {
       </div>
       <div className={styles.details}>
         <div>
-          <Link to={`/manga/${manga.id}`} state={manga} className={styles.title}>{manga.attributes.title.en}</Link>
+          <h4 className={styles.title}>{manga.attributes.title.en}</h4>
         </div>
         <div>
           <p className={styles.status}>Status: {manga.attributes.status}</p>
         </div>
         <div>
-          {noOfChapter  && <p>Chapter: {noOfChapter}</p>}
+          {manga.attributes.lastChapter && <p>Chapter: {manga.attributes.lastChapter}</p>}
         </div>
         <div>
           <p>Author: {author.attributes.name}</p>

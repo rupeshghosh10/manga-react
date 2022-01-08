@@ -42,6 +42,11 @@
     margin-right: auto;
 }
 
+.mangaBoxLink {
+    text-decoration: none;
+    color: var(--black);
+}
+
 @media screen and (max-width: 750px) {
 
     .container {

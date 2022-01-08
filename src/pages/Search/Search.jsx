@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MangaBox from '../../components/MangaBox/MangaBox';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './Search.module.css';
@@ -18,7 +19,6 @@ const Search = () => {
     if (searchText.length !== 0) {
       mangadexApi.searchManga(searchText, { controller }).then(res => {
         setMangaList(res.data);
-        console.log(res.data);
       }).catch(() => {
         setMangaList([]);
       });
@@ -28,6 +28,10 @@ const Search = () => {
     }
     return () => controller.abort();
   }, [searchText]);
+
+  const handleClick = () => {
+    console.log('click');
+  }
 
   return (
     <>
@@ -39,7 +43,9 @@ const Search = () => {
           {mangaList.map((manga, i) => (
             <li className={styles.manga} key={i}>
               <div className={styles.mangaBox}>
-                <MangaBox manga={manga} noOfChapter={null} />
+                <Link to={`/manga/${manga.id}`} state={manga} className={styles.mangaBoxLink}>
+                  <MangaBox manga={manga} onClick={handleClick} />
+                </Link>
               </div>
             </li>
           ))}
