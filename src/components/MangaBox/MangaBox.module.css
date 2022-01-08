@@ -6,7 +6,7 @@
     grid-template-rows: auto auto 1fr;
     background-color: var(--light-gray);
     border: 1px solid var(--grey);
-    overflow: hidden;;
+    overflow: hidden;
 }
 
 .imageBox {
@@ -33,6 +33,7 @@
 
 .details p {
     font-size: 0.9rem;
+    line-height: 1.2rem;
 }
 
 .synopsis {
@@ -64,7 +65,8 @@
     text-align: justify;
     font-size: 0.9rem;
     word-wrap: break-word;
-    line-height: 1.2rem;
+    line-height: 1.15rem;
+    text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 750px) {

@@ -39,7 +39,7 @@ const Search = () => {
           {mangaList.map((manga, i) => (
             <li className={styles.manga} key={i}>
               <div className={styles.mangaBox}>
-                <MangaBox manga={manga} noOfChapter={manga.attributes.lastChapter} />
+                <MangaBox manga={manga} noOfChapter={null} />
               </div>
             </li>
           ))}

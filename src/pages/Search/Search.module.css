@@ -24,10 +24,10 @@
 
 .mangaList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
-    width: 90vw;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
@@ -36,7 +36,7 @@
 }
 
 .mangaBox {
-    height: 50vh;
+    height: 45vh;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -47,5 +47,10 @@
     .container {
         margin-top: 5rem;
         height: 2.8rem;
+    }
+
+    .mangaList {
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem
     }
 }

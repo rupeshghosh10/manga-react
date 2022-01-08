@@ -20,10 +20,10 @@ const MangaBox = ({ manga, noOfChapter }) => {
           <h2 className={styles.title}>{manga.attributes.title.en}</h2>
         </div>
         <div>
-          <p className={styles.status}>{manga.attributes.status}</p>
+          <p className={styles.status}>Status: {manga.attributes.status}</p>
         </div>
         <div>
-          {(noOfChapter || noOfChapter === 0 ) && <p>Chapter: {noOfChapter}</p>}
+          {noOfChapter  && <p>Chapter: {noOfChapter}</p>}
         </div>
         <div>
           <p>Author: {author.attributes.name}</p>
