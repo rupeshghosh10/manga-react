@@ -11,7 +11,7 @@ const App = () => {
       <Routes>
         <Route exacte path="/random" element={<Random />} />
         <Route exacte path="/search" element={<Search />} />
-        <Route exacte path="/manga" element={<MangaInfo />} />
+        <Route exacte path="/manga/:id" element={<MangaInfo />} />
       </Routes>
     </BrowserRouter>
   );

@@ -28,6 +28,16 @@ const searchManga = async (title, { controller }) => {
   return res.data;
 }
 
+const getManga = async (mangaId) => {
+  const req = axios.get(`${baseUrl}/manga/${mangaId}`, {
+    params: {
+      includes: ['author', 'artist', 'cover_art']
+    }
+  });
+  const res = await req;
+  return res.data;
+}
+
 const getChapterList = async (mangaId) => {
   const req = axios.get(`${baseUrl}/chapter`, {
     params: {
@@ -43,7 +53,8 @@ const getChapterList = async (mangaId) => {
 const mangadexApi = {
   getRandomManga,
   getChapterList,
-  searchManga
+  searchManga,
+  getManga
 }
 
 export default mangadexApi;
