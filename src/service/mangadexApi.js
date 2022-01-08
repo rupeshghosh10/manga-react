@@ -38,14 +38,15 @@ const getManga = async (mangaId) => {
   return res.data;
 }
 
-const getChapterList = async (mangaId) => {
+const getChapterList = async (mangaId, offset) => {
   const req = axios.get(`${baseUrl}/chapter`, {
     params: {
       manga: mangaId,
       translatedLanguage: ['en'],
       includes: ['scanlation_group'],
       'order[chapter]': 'desc',
-      limit: 100
+      limit: 100,
+      offset: offset
     }
   });
   const res = await req;

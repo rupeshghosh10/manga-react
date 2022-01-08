@@ -42,11 +42,16 @@
     margin-right: auto;
     background-color: var(--light-gray);
     border: 1px solid var(--grey);
+    border-radius: 4px;
 }
 
 .mangaBoxLink {
     text-decoration: none;
     color: var(--black);
+}
+
+.mangaBox:hover {
+    filter: brightness(95%);
 }
 
 @media screen and (max-width: 750px) {

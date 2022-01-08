@@ -15,11 +15,17 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0.25rem;
+    padding: 0.25rem;
     list-style: none;
     line-height: 1.2rem;
     font-size: 0.9rem;
-    border-bottom: 1px solid var(--grey);
+    cursor: pointer;
+    background-color: var(--light-gray);
+    border: 4px;
+}
+
+.chapterDetail:hover {
+    filter: brightness(95%);
 }
 
 .chapterDate {
