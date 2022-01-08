@@ -4,8 +4,6 @@
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: auto auto 1fr;
-    background-color: var(--light-gray);
-    border: 1px solid var(--grey);
     overflow: hidden;
 }
 

@@ -26,7 +26,7 @@ const MangaBox = ({ manga }) => {
           {manga.attributes.lastChapter && <p>Chapter: {manga.attributes.lastChapter}</p>}
         </div>
         <div>
-          <p>Author: {author.attributes.name}</p>
+          {author && <p>Author: {author.attributes.name}</p>}
         </div>
         <div>
           {artist && <p>Artist: {artist.attributes.name}</p>}

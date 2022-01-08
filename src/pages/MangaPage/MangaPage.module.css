@@ -1,0 +1,35 @@
+.mangaInfoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--light-gray);
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.mangaBoxContainer {
+    height: auto;
+    border-bottom: 1px solid var(--grey);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+@media screen and (max-width: 750px) {
+
+    .mangaInfoContainer {
+        width: 95%;
+    }
+}

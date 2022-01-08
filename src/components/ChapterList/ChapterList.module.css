@@ -1,0 +1,53 @@
+.chapterList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.chapterDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0.25rem;
+    list-style: none;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--grey);
+}
+
+.chapterDate {
+    font-size: 0.85rem;
+    color: var(--dark-grey);
+}
+
+.scanlationGroup {
+    text-align: right;
+}
+
+@media screen and (max-width: 750px) {
+
+    .chapterList {
+        margin-top: 0.5rem;
+        width: 95%;
+    }
+
+    .chapterName {
+        line-height: 1.1rem;
+    }
+
+    .chapterDetail {
+        font-size: 0.85rem;
+        margin: 0.2rem;
+    }
+
+    .chapterDate {
+        font-size: 0.8rem;
+    }
+}

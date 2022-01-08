@@ -43,7 +43,9 @@ const getChapterList = async (mangaId) => {
     params: {
       manga: mangaId,
       translatedLanguage: ['en'],
-      includes: ['scanlation_group']
+      includes: ['scanlation_group'],
+      'order[chapter]': 'desc',
+      limit: 100
     }
   });
   const res = await req;

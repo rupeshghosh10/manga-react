@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './Loading.module.css';
 
-const Loading = () => {
+const Loading = ({ size, strokeWidth }) => {
 
   const [progress, setProgress] = useState(0);
 
@@ -12,8 +12,6 @@ const Loading = () => {
     return () => clearTimeout(timer);
   }, [progress])
 
-  const size = 200;
-  const strokeWidth = 15;
   const radius = (size - strokeWidth) / 2;
   const cirumference = radius * Math.PI * 2;
   const dash = (progress * cirumference) / 100;

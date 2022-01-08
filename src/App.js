@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import MangaInfo from './pages/MangaInfo/MangaInfo';
+import MangaInfo from './pages/MangaPage/MangaPage';
 import Random from './pages/Random/Random';
 import Search from './pages/Search/Search';
 

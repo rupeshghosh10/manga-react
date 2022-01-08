@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import mangadexApi from '../../service/mangadexApi';
+import styles from './Random.module.css';
 
 const Random = () => {
 
@@ -24,7 +25,11 @@ const Random = () => {
   }, [counter]);
 
   if (isLoading) {
-    return <Loading />
+    return (
+      <div className={styles.loading}>
+        <Loading size={200} strokeWidth={15} />
+      </div>
+    )
   }
 
   return <> </>

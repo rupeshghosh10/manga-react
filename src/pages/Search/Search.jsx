@@ -29,10 +29,6 @@ const Search = () => {
     return () => controller.abort();
   }, [searchText]);
 
-  const handleClick = () => {
-    console.log('click');
-  }
-
   return (
     <>
       <div className={styles.container}>
@@ -44,7 +40,7 @@ const Search = () => {
             <li className={styles.manga} key={i}>
               <div className={styles.mangaBox}>
                 <Link to={`/manga/${manga.id}`} state={manga} className={styles.mangaBoxLink}>
-                  <MangaBox manga={manga} onClick={handleClick} />
+                  <MangaBox manga={manga} />
                 </Link>
               </div>
             </li>
