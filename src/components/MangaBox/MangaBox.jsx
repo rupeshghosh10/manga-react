@@ -2,6 +2,7 @@ import MangaCover from '../MangaCover/MangaCover';
 import Tag from '../Tag/Tag';
 import helper from '../../util/helper';
 import styles from './MangaBox.module.css';
+import { Link } from 'react-router-dom';
 
 const MangaBox = ({ manga, noOfChapter }) => {
 
@@ -17,7 +18,7 @@ const MangaBox = ({ manga, noOfChapter }) => {
       </div>
       <div className={styles.details}>
         <div>
-          <h2 className={styles.title}>{manga.attributes.title.en}</h2>
+          <Link to={`/manga/${manga.id}`} state={manga} className={styles.title}>{manga.attributes.title.en}</Link>
         </div>
         <div>
           <p className={styles.status}>Status: {manga.attributes.status}</p>
