@@ -18,11 +18,16 @@ const findScanlationGroup = (chapter) => {
   return find(chapter, 'scanlation_group')
 }
 
+const findManga = (chapter) => {
+  return find(chapter, 'manga');
+}
+
 const helper = {
   findCover,
   findAuthor,
   findArtist,
-  findScanlationGroup
+  findScanlationGroup,
+  findManga
 }
 
 export default helper;

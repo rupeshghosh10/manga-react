@@ -53,11 +53,29 @@ const getChapterList = async (mangaId, offset) => {
   return res.data;
 }
 
+const getChapter = async (chapterId) => {
+  const req = axios.get(`${baseUrl}/chapter/${chapterId}`, {
+    params: {
+      includes: ['manga']
+    }
+  });
+  const res = await req;
+  return res.data;
+}
+
+const getPageHash = async (chapterId) => {
+  const req = axios.get(`${baseUrl}/at-home/server/${chapterId}`);
+  const res = await req;
+  return res.data;
+}
+
 const mangadexApi = {
   getRandomManga,
   getChapterList,
   searchManga,
-  getManga
+  getManga,
+  getChapter,
+  getPageHash
 }
 
 export default mangadexApi;

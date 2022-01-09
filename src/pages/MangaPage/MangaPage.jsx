@@ -39,7 +39,7 @@ const MangaInfo = () => {
       <div className={styles.mangaBoxContainer}>
         <MangaBox manga={manga} />
       </div>
-      <ChapterList mangaId={params.id} />
+      <ChapterList mangaId={params.id} manga={manga} />
     </div>
   );
 }

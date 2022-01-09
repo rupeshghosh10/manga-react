@@ -4,8 +4,9 @@ import helper from '../../util/helper';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './ChapterList.module.css';
 import Loading from '../Loading/Loading';
+import { Link } from 'react-router-dom';
 
-const ChapterList = ({ mangaId }) => {
+const ChapterList = ({ mangaId, manga }) => {
 
   const [chapterList, setChapterList] = useState([]);
   const [chapterAvailable, setChapterAvailable] = useState(true);
@@ -65,7 +66,7 @@ const ChapterList = ({ mangaId }) => {
 
   const chapterFilter = chapter => {
     const title = chapter.attributes.title?.toLowerCase();
-    const chapterNo = chapter.attributes?.chapter; 
+    const chapterNo = chapter.attributes?.chapter;
     return title?.includes(searchChapter.toLowerCase().trim()) || chapterNo?.includes(searchChapter.trim());
   }
 
@@ -105,13 +106,15 @@ const ChapterList = ({ mangaId }) => {
           .filter(chapter => chapterFilter(chapter))
           .map((chapter, i) => (
             <li className={styles.chapterDetail} key={i}>
-              <div className={styles.chapter}>
-                <p className={styles.chapterName}>Chapter {chapter.attributes.chapter} : {chapter.attributes.title}</p>
-                <p className={styles.chapterDate}>{moment(chapter.attributes.updatedAt).format('MMM DD, YYYY')}</p>
-              </div>
-              <div className={styles.scanlationGroup}>
-                {helper.findScanlationGroup(chapter) && <p>{helper.findScanlationGroup(chapter).attributes.name}</p>}
-              </div>
+              <Link to={`/chapter/${chapter.id}`} state={{chapter, manga}} className={styles.chapterLink}>
+                <div className={styles.chapter}>
+                  <p className={styles.chapterName}>Chapter {chapter.attributes.chapter} : {chapter.attributes.title}</p>
+                  <p className={styles.chapterDate}>{moment(chapter.attributes.updatedAt).format('MMM DD, YYYY')}</p>
+                </div>
+                <div className={styles.scanlationGroup}>
+                  {helper.findScanlationGroup(chapter) && <p>{helper.findScanlationGroup(chapter).attributes.name}</p>}
+                </div>
+              </Link>
             </li>
           ))}
       </ul>
