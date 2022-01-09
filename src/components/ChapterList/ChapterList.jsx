@@ -64,9 +64,9 @@ const ChapterList = ({ mangaId }) => {
   }
 
   const chapterFilter = chapter => {
-    const title = chapter.attributes.title.toLowerCase();
-    const chapterNo = chapter.attributes.chapter; 
-    return title.includes(searchChapter.toLowerCase().trim()) || chapterNo.includes(searchChapter.trim());
+    const title = chapter.attributes.title?.toLowerCase();
+    const chapterNo = chapter.attributes?.chapter; 
+    return title?.includes(searchChapter.toLowerCase().trim()) || chapterNo?.includes(searchChapter.trim());
   }
 
   if (isLoading) {
