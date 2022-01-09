@@ -1,0 +1,48 @@
+.mangaList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    list-style: none;
+}
+
+.loading {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.mangaBox {
+    height: 45vh;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--light-gray);
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+}
+
+.mangaBoxLink {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.mangaBox:hover {
+    filter: brightness(95%);
+}
+
+@media screen and (max-width: 750px) {
+
+    .mangaList {
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+}

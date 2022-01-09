@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import MangaBox from '../../components/MangaBox/MangaBox';
+import MangaList from '../../components/MangaList/MangaList';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './Search.module.css';
 
@@ -8,6 +7,7 @@ const Search = () => {
 
   const [searchText, setSearchText] = useState('');
   const [mangaList, setMangaList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const controller = new AbortController();
 
@@ -17,14 +17,17 @@ const Search = () => {
 
   useEffect(() => {
     if (searchText.length !== 0) {
+      setIsLoading(true);
       mangadexApi.searchManga(searchText, { controller }).then(res => {
         setMangaList(res.data);
+        setIsLoading(false);
       }).catch(() => {
         setMangaList([]);
       });
     }
     else {
       setMangaList([]);
+      setIsLoading(false);
     }
     return () => controller.abort();
   }, [searchText]);
@@ -34,18 +37,7 @@ const Search = () => {
       <div className={styles.container}>
         <input placeholder='Search...' className={styles.searchInput} value={searchText} onChange={handleTextChange} />
       </div>
-      {mangaList.length !== 0 &&
-        <ul className={styles.mangaList}>
-          {mangaList.map((manga, i) => (
-            <li className={styles.manga} key={i}>
-              <div className={styles.mangaBox}>
-                <Link to={`/manga/${manga.id}`} state={manga} className={styles.mangaBoxLink}>
-                  <MangaBox manga={manga} />
-                </Link>
-              </div>
-            </li>
-          ))}
-        </ul>}
+      <MangaList mangaList={mangaList} isLoading={isLoading} />
     </>
   );
 }
