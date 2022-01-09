@@ -1,3 +1,38 @@
+.control {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0rem;
+    border-bottom: 1px solid var(--grey);
+    line-height: 1.1rem;
+}
+
+.control p {
+    font-size: 0.8rem;
+    color: var(--dark-grey);
+    margin-left: 0.1rem;
+}
+
+.input, .select {
+    font-size: 1.1rem;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 0.2rem 0.75rem;
+    width: 9rem;
+}
+
+.input:focus, .select:focus {
+    outline: none;
+    border: 1px solid var(--black);
+}
+
+.select {
+    background: var(--white);
+}
+
 .chapterList {
     display: flex;
     justify-content: space-between;
@@ -6,7 +41,7 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
 
@@ -38,6 +73,18 @@
 }
 
 @media screen and (max-width: 750px) {
+
+    .control {
+        width: 95%;
+    }
+
+    .control p {
+        font-size: 0.75rem;
+    }
+
+    .input, .select {
+        font-size: 1rem;
+    }
 
     .chapterList {
         margin-top: 0.5rem;
