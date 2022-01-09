@@ -10,40 +10,37 @@ const ChapterList = ({ mangaId }) => {
   const [chapterList, setChapterList] = useState([]);
   const [chapterAvailable, setChapterAvailable] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     mangadexApi.getChapterList(mangaId, 0).then(res => {
       if (res.data.length === 0) {
         setChapterAvailable(false);
+        setIsLoading(false);
       }
       else {
         setChapterList(res.data);
-      }
-      if (res.data.length < 100) {
-        setIsLoading(false);
+        if (res.data.length < 100) {
+          setIsLoading(false);
+        }
+        else {
+          let result = [...res.data];
+          fetchAllChapter(result, 100);
+        }
       }
     });
   }, [mangaId]);
 
-  useEffect(() => {
-    if (chapterList.length >= 100) {
-      setOffset(offset + 100);
-    }
-  }, [chapterList]);
-
-  useEffect(() => {
-    if (offset > 0) {
-      mangadexApi.getChapterList(mangaId, offset).then(res => {
-        if (res.data.length === 0) {
-          setIsLoading(false);
-        }
-        else {
-          setChapterList([...chapterList, ...res.data]);
-        }
-      });
-    }
-  }, [offset])
+  const fetchAllChapter = (result, offset) => {
+    mangadexApi.getChapterList(mangaId, offset).then(res => {
+      result = [...result, ...res.data];
+      if (res.data.length < 100) {
+        setChapterList([...chapterList, ...result]);
+        setIsLoading(false);
+        return;
+      }
+      fetchAllChapter(result, offset + 100);
+    });
+  }
 
   if (isLoading) {
     return (
