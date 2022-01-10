@@ -48,8 +48,8 @@
 
 @media screen and (max-width: 750px) {
 
-    progress {
-        width: 90vw;
+    .progress span {
+        font-size: 0.9rem;
     }
 
     .imageContainer {
