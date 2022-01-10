@@ -69,13 +69,22 @@ const getPageHash = async (chapterId) => {
   return res.data;
 }
 
+const getPageImage = async (url) => {
+  const req = axios.get(url, {
+    responseType: 'arraybuffer'
+  });
+  const res = await req;
+  return res.data;
+}
+
 const mangadexApi = {
   getRandomManga,
   getChapterList,
   searchManga,
   getManga,
   getChapter,
-  getPageHash
+  getPageHash,
+  getPageImage
 }
 
 export default mangadexApi;

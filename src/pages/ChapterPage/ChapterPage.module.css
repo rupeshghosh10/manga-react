@@ -7,18 +7,53 @@
     background-color: rgba(128, 128, 128, 0.2);
 }
 
+.chapterPageContainer {
+    width: 100%;
+}
+
 .title, .progress {
-    margin: 0.25rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.progress p {
+.progress {
+    margin-top: 3.25rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.25rem 1rem;
-    margin-right: 1rem;
     width: 33%;
     text-align: center;
     background-color: var(--grey);
+    border: 1px solid var(--dark-grey);
     white-space: nowrap;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 750px) {
+
+    progress {
+        width: 90vw;
+    }
+
+    .imageContainer {
+        width: 100vw;
+    }
+
 }
