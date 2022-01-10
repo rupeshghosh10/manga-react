@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = 'https://api.mangadex.org';
+// const baseUrl = 'https://api.mangadex.org';
+const baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.mangadex.org';
 
 const getRandomManga = async () => {
   const req = axios.get(`${baseUrl}/manga/random`, {
