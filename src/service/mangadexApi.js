@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://api.mangadex.org';
-// const baseUrl = 'https://desolate-sea-78726.herokuapp.com';
+const baseUrl = process.env.REACT_APP_API_URL ?? 'https://api.mangadex.org';
 
 const getRandomManga = async () => {
   const req = axios.get(`${baseUrl}/manga/random`, {
