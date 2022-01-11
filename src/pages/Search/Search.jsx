@@ -16,6 +16,10 @@ const Search = () => {
   }
 
   useEffect(() => {
+    document.title = 'Search | Manga React';
+  }, []);
+
+  useEffect(() => {
     if (searchText.length !== 0) {
       setIsLoading(true);
       mangadexApi.searchManga(searchText, { controller }).then(res => {

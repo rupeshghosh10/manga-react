@@ -16,11 +16,13 @@ const MangaInfo = () => {
   useEffect(() => {
     if (!state) {
       mangadexApi.getManga(params.id).then(res => {
+        document.title = `${res.data.attributes.title.en} | Manga React`;
         setManga(res.data);
         setIsLoading(false);
       });
     }
     else {
+      document.title = `${state.attributes.title.en} | Manga React`;
       setManga(state);
       setIsLoading(false);
     }

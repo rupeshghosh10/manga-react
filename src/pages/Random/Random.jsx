@@ -11,6 +11,10 @@ const Random = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = 'Random | Manga React';
+  }, []);
+
+  useEffect(() => {
     mangadexApi.getRandomManga().then(res => {
       if (res.data.attributes.originalLanguage === 'ja' &&
         res.data.attributes.contentRating !== 'pornographic' &&

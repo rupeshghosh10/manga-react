@@ -36,6 +36,11 @@
     white-space: nowrap;
 }
 
+.progress span:hover {
+    filter: brightness(115%);
+    cursor: pointer;
+}
+
 .imageContainer {
     display: flex;
     align-items: center;

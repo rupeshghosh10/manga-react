@@ -22,12 +22,14 @@ const ChapterPage = () => {
   useEffect(() => {
     if (!state) {
       mangadexApi.getChapter(params.id).then(res => {
+        document.title = `${helper.findManga(res.data).attributes.title.en} | Manga React`;
         setChapter(res.data);
         setManga(helper.findManga(res.data));
         setIsLoading(false);
       });
     }
     else {
+      document.title = `${state.manga.attributes.title.en} | Manga React`;
       setChapter(state.chapter);
       setManga(state.manga);
       setIsLoading(false);
