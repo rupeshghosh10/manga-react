@@ -8,7 +8,7 @@ const MangaList = ({ mangaList, isLoading }) => {
   if (isLoading) {
     return (
       <div className={styles.loading}>
-        <Loading size={150} strokeWidth={12} />
+        <Loading size={140} strokeWidth={12} />
       </div>
     );
   }

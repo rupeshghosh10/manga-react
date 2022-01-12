@@ -39,7 +39,7 @@ const MangaInfo = () => {
   return (
     <div className={styles.mangaInfoContainer}>
       <div className={styles.mangaBoxContainer}>
-        <MangaBox manga={manga} />
+        <MangaBox manga={manga} showFullTags={true} />
       </div>
       <ChapterList mangaId={params.id} manga={manga} />
     </div>

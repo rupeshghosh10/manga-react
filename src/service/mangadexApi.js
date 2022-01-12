@@ -38,6 +38,51 @@ const getManga = async (mangaId) => {
   return res.data;
 }
 
+const getTopFollowedManga = async () => {
+  const req = axios.get(`${baseUrl}/manga`, {
+    params: {
+      originalLanguage: ['ja'],
+      availableTranslatedLanguage: ['en'],
+      contentRating: ['safe', 'suggestive', 'erotica'],
+      includes: ['author', 'artist', 'cover_art'],
+      'order[followedCount]': 'desc',
+      limit: 4
+    }
+  });
+  const res = await req;
+  return res.data;
+}
+
+const getTopRevelantManga = async () => {
+  const req = axios.get(`${baseUrl}/manga`, {
+    params: {
+      originalLanguage: ['ja'],
+      availableTranslatedLanguage: ['en'],
+      contentRating: ['safe', 'suggestive', 'erotica'],
+      includes: ['author', 'artist', 'cover_art'],
+      'order[relevance]': 'desc',
+      limit: 4
+    }
+  });
+  const res = await req;
+  return res.data;
+}
+
+const getRecentlyUpdateManga = async () => {
+  const req = axios.get(`${baseUrl}/manga`, {
+    params: {
+      originalLanguage: ['ja'],
+      availableTranslatedLanguage: ['en'],
+      contentRating: ['safe', 'suggestive', 'erotica'],
+      includes: ['author', 'artist', 'cover_art'],
+      'order[createdAt]': 'desc',
+      limit: 4
+    }
+  });
+  const res = await req;
+  return res.data;
+}
+
 const getChapterList = async (mangaId, offset) => {
   const req = axios.get(`${baseUrl}/chapter`, {
     params: {
@@ -84,7 +129,10 @@ const mangadexApi = {
   getManga,
   getChapter,
   getPageHash,
-  getPageImage
+  getPageImage,
+  getTopFollowedManga,
+  getTopRevelantManga,
+  getRecentlyUpdateManga
 }
 
 export default mangadexApi;

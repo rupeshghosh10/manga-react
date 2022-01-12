@@ -1,9 +1,9 @@
 import MangaCover from '../MangaCover/MangaCover';
-import Tag from '../Tag/Tag';
+import TagList from '../TagList/TagList';  
 import helper from '../../util/helper';
 import styles from './MangaBox.module.css';
 
-const MangaBox = ({ manga }) => {
+const MangaBox = ({ manga, showFullTags = false }) => {
 
   const cover = helper.findCover(manga);
   const author = helper.findAuthor(manga);
@@ -13,7 +13,7 @@ const MangaBox = ({ manga }) => {
   return (
     <div className={styles.mangaBox}>
       <div className={styles.imageBox}>
-        <MangaCover mangaId={manga.id} fileName={cover.attributes.fileName} />
+        <MangaCover mangaId={manga.id} fileName={cover.attributes?.fileName} />
       </div>
       <div className={styles.details}>
         <div>
@@ -33,7 +33,7 @@ const MangaBox = ({ manga }) => {
         </div>
       </div>
       <div className={styles.tags}>
-        {tags.map((tag, i) => <Tag key={i} tag={tag.attributes.name.en} />)}
+        <TagList tags={tags} showFullTags={showFullTags} />
       </div>
       <div className={styles.synopsis}>
         <h4>Description</h4>
