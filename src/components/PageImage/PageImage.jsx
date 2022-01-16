@@ -11,9 +11,7 @@ const PageImage = ({ image }) => {
     );
   }
 
-  return (
-    <img src={`data:image/jpeg;charset=utf-8;base64,${image}`} className={styles.image} />
-  );
+  return <img src={`data:image/jpeg;charset=utf-8;base64,${image}`} className={styles.image} />;
 }
 
 export default PageImage;

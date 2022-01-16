@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.disabled {
+    filter: brightness(115%);
+}
+
 .imageContainer {
     display: flex;
     align-items: center;
@@ -51,10 +55,31 @@
     margin-top: 0.2rem;
 }
 
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.navigation a:hover {
+    font-weight: bold;
+} 
+
 @media screen and (max-width: 750px) {
 
+    .progress {
+        width: 100vw;
+    }
+
     .progress span {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .imageContainer {

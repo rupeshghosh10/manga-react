@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Buffer } from 'buffer';
 import Loading from '../../components/Loading/Loading';
 import mangadexApi from '../../service/mangadexApi';
@@ -34,7 +34,7 @@ const ChapterPage = () => {
       setManga(state.manga);
       setIsLoading(false);
     }
-  }, [params]);
+  }, [params, state]);
 
   useEffect(() => {
     if (!isLoading) {
@@ -52,14 +52,16 @@ const ChapterPage = () => {
   }, [pageHash, hash]);
 
   const getAllPageImages = (pageNumber, imagesArray) => {
-    mangadexApi.getPageImage(`https://uploads.mangadex.org/data/${hash}/${pageHash[pageNumber - 1]}`).then(res => {
-      imagesArray = [...imagesArray, Buffer.from(res, 'binary').toString('base64')];
-      setImages([...imagesArray]);
-      if (pageNumber === chapter.attributes.pages) {
-        return;
-      }
-      getAllPageImages(pageNumber + 1, imagesArray);
-    });
+    mangadexApi
+      .getPageImage(`https://uploads.mangadex.org/data/${hash}/${pageHash[pageNumber - 1]}`)
+      .then(res => {
+        imagesArray = [...imagesArray, Buffer.from(res, 'binary').toString('base64')];
+        setImages([...imagesArray]);
+        if (pageNumber === chapter.attributes.pages) {
+          return;
+        }
+        getAllPageImages(pageNumber + 1, imagesArray);
+      });
   }
 
   const handlePreviousClick = () => {
@@ -69,7 +71,7 @@ const ChapterPage = () => {
   }
 
   const handleNextClick = () => {
-    if (currentPage < chapter.attributes.pages) {
+    if (currentPage <= chapter.attributes.pages) {
       setCurrentPage(currentPage + 1);
     }
   }
@@ -82,16 +84,40 @@ const ChapterPage = () => {
     );
   }
 
+  if (currentPage > chapter.attributes.pages) {
+    return (
+      <div className={styles.chapterPageContainer}>
+        <div className={styles.progress}>
+          <span onClick={handlePreviousClick} className={`${currentPage === 1 ? styles.disabled : ''}`}>
+            Previous
+          </span>
+          <span>
+            Chapter {chapter.attributes.chapter} : Page {currentPage - 1}
+          </span>
+          <span onClick={handleNextClick} className={`${currentPage > chapter.attributes.pages ? styles.disabled : ''}`}>
+            Next
+          </span>
+        </div>
+        <div className={styles.navigation}>
+          <h2>End of Chapter</h2>
+          <Link to={`/manga/${manga.id}`}>Go Back</Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.chapterPageContainer}>
-      {/* <div className={styles.title}>
-        <p>{manga.attributes.title.en}</p>
-        <p>Chapter: {chapter.attributes.chapter}</p>
-      </div> */}
       <div className={styles.progress}>
-        <span onClick={handlePreviousClick}>Previous</span>
-        <span>Page: {currentPage}</span>
-        <span onClick={handleNextClick}>Next</span>
+        <span onClick={handlePreviousClick} className={`${currentPage === 1 ? styles.disabled : ''}`}>
+          Previous
+        </span>
+        <span>
+          Chapter {chapter.attributes.chapter} : Page {currentPage}
+        </span>
+        <span onClick={handleNextClick}>
+          Next
+        </span>
       </div>
       <div className={styles.imageContainer}>
         <PageImage image={images[currentPage - 1]} />
