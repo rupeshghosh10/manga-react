@@ -5,6 +5,7 @@ import Loading from '../../components/Loading/Loading';
 import mangadexApi from '../../service/mangadexApi';
 import styles from './MangaPage.module.css';
 import ChapterList from '../../components/ChapterList/ChapterList';
+import history from '../../util/history';
 
 const MangaInfo = () => {
 
@@ -19,12 +20,14 @@ const MangaInfo = () => {
         document.title = `${res.data.attributes.title.en} | Manga React`;
         setManga(res.data);
         setIsLoading(false);
+        history.addManga(res.data);
       });
     }
     else {
       document.title = `${state.attributes.title.en} | Manga React`;
       setManga(state);
       setIsLoading(false);
+      history.addManga(state);
     }
   }, [params]);
 
@@ -33,7 +36,7 @@ const MangaInfo = () => {
       <div className={styles.loading}>
         <Loading size={200} strokeWidth={15} /> 
       </div>
-    )
+    );
   }
 
   return (

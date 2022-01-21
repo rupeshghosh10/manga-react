@@ -5,6 +5,7 @@ import Discover from './pages/Discover/Discover';
 import MangaInfo from './pages/MangaPage/MangaPage';
 import Random from './pages/Random/Random';
 import Search from './pages/Search/Search';
+import History from './pages/Hisotry/History';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route exacte path="/search" element={<Search />} />
         <Route exacte path="/manga/:id" element={<MangaInfo />} />
         <Route exacte path="/chapter/:id" element={<ChapterPage />} />
+        <Route exacte path="/history" element={<History />} />
       </Routes>
     </BrowserRouter>
   );
