@@ -91,7 +91,7 @@ const ChapterPage = () => {
           Previous
         </span>
         <span>
-          Chapter {chapter.attributes.chapter} : Page {currentPage}
+          Page {currentPage <= chapter.attributes.pages ? currentPage : currentPage - 1} of {chapter.attributes.pages}
         </span>
         <span onClick={handleNextClick} className={`${currentPage > chapter.attributes.pages ? styles.disabled : ''}`}>
           Next
