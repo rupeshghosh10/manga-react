@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Buffer } from 'buffer';
 import Loading from '../../components/Loading/Loading';
 import mangadexApi from '../../service/mangadexApi';
@@ -84,28 +84,6 @@ const ChapterPage = () => {
     );
   }
 
-  if (currentPage > chapter.attributes.pages) {
-    return (
-      <div className={styles.chapterPageContainer}>
-        <div className={styles.progress}>
-          <span onClick={handlePreviousClick} className={`${currentPage === 1 ? styles.disabled : ''}`}>
-            Previous
-          </span>
-          <span>
-            Chapter {chapter.attributes.chapter} : Page {currentPage - 1}
-          </span>
-          <span onClick={handleNextClick} className={`${currentPage > chapter.attributes.pages ? styles.disabled : ''}`}>
-            Next
-          </span>
-        </div>
-        <div className={styles.navigation}>
-          <h2>End of Chapter</h2>
-          <Link to={`/manga/${manga.id}`}>Go Back</Link>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.chapterPageContainer}>
       <div className={styles.progress}>
@@ -115,12 +93,15 @@ const ChapterPage = () => {
         <span>
           Chapter {chapter.attributes.chapter} : Page {currentPage}
         </span>
-        <span onClick={handleNextClick}>
+        <span onClick={handleNextClick} className={`${currentPage > chapter.attributes.pages ? styles.disabled : ''}`}>
           Next
         </span>
       </div>
       <div className={styles.imageContainer}>
-        <PageImage image={images[currentPage - 1]} />
+        <PageImage
+          image={images[currentPage - 1]}
+          endOfChapter={currentPage > chapter.attributes.pages}
+          mangaId={manga.id} />
       </div>
     </div>
   );

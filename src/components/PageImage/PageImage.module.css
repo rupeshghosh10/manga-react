@@ -5,3 +5,22 @@
 .image {
     max-width: 100%;
 }
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--black);
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.navigation a:hover {
+    font-weight: bold;
+} 
