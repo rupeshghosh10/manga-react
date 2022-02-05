@@ -50,11 +50,11 @@ const Navbar = () => {
                 History
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/saved" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
                 Saved
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/random" className={({ isActive }) => isActive ? styles.active : ''} onClick={handleToggle}>
                 Random
@@ -66,7 +66,7 @@ const Navbar = () => {
           </ul>
         </div>}
       <div className={styles.account}>
-        <a href='/'>Log In</a>
+        {/* <a href='/'>Log In</a> */}
       </div>
     </nav>
   )
