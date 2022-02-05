@@ -35,13 +35,13 @@ const Discover = () => {
 
   return (
     <div className={styles.DiscoverContainer}>
-      <div className={styles.relevantMangaCOntainer}>
-        <h2>Discover</h2>
-        <MangaList mangaList={relevantManga} isLoading={isLoadingRelevant} />
-      </div>
       <div className={styles.topFollowedMangaContainer}>
         <h2>Top Followed Manga</h2>
         <MangaList mangaList={topFollowedManga} isLoading={isLoadingTopFollowed} />
+      </div>
+      <div className={styles.relevantMangaCOntainer}>
+        <h2>Discover</h2>
+        <MangaList mangaList={relevantManga} isLoading={isLoadingRelevant} />
       </div>
       <div className={styles.recentlyUpdateMangaContainer}>
         <h2>Recently Added</h2>

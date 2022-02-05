@@ -43,7 +43,7 @@ const getTopFollowedManga = async () => {
     params: {
       originalLanguage: ['ja'],
       availableTranslatedLanguage: ['en'],
-      contentRating: ['safe', 'suggestive', 'erotica'],
+      contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[followedCount]': 'desc',
       limit: 4
@@ -58,7 +58,7 @@ const getTopRevelantManga = async () => {
     params: {
       originalLanguage: ['ja'],
       availableTranslatedLanguage: ['en'],
-      contentRating: ['safe', 'suggestive', 'erotica'],
+      contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[relevance]': 'desc',
       limit: 4
@@ -73,7 +73,7 @@ const getRecentlyUpdateManga = async () => {
     params: {
       originalLanguage: ['ja'],
       availableTranslatedLanguage: ['en'],
-      contentRating: ['safe', 'suggestive', 'erotica'],
+      contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[createdAt]': 'desc',
       limit: 4
