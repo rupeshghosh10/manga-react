@@ -15,6 +15,7 @@ const Discover = () => {
   const [isLoadingRecentlyUpdated, setIsLoaingRecentlyUpdate] = useState(true);
 
   useEffect(() => {
+    console.log('ran');
     mangadexApi.getTopFollowedManga().then(res => {
       setTopFollowedManga(res.data);
       setIsLoadingTopFollowed(false);
@@ -27,7 +28,7 @@ const Discover = () => {
       setRecentlyUpdateManga(res.data);
       setIsLoaingRecentlyUpdate(false);
     })
-  }, [isLoadingTopFollowed, isLoadingRelevant, isLoadingRecentlyUpdated]);
+  }, []);
 
   useEffect(() => {
     document.title = 'Discover | Manga React';

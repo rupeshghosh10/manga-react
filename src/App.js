@@ -5,7 +5,7 @@ import Discover from './pages/Discover/Discover';
 import MangaInfo from './pages/MangaPage/MangaPage';
 import Random from './pages/Random/Random';
 import Search from './pages/Search/Search';
-import History from './pages/Hisotry/History';
+import History from './pages/History/History';
 
 const App = () => {
   return (
