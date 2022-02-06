@@ -8,11 +8,13 @@ const Search = () => {
   const [searchText, setSearchText] = useState('');
   const [mangaList, setMangaList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [noMangaFound, setNoMangaFound] = useState(false);
 
   const controller = new AbortController();
 
   const handleTextChange = e => {
     setSearchText(e.target.value);
+    setNoMangaFound(false);
   }
 
   useEffect(() => {
@@ -23,6 +25,9 @@ const Search = () => {
     if (searchText.length !== 0) {
       setIsLoading(true);
       mangadexApi.searchManga(searchText, { controller }).then(res => {
+        if (res.data.length === 0) {
+          setNoMangaFound(true);
+        }
         setMangaList(res.data);
         setIsLoading(false);
       }).catch(() => {
@@ -32,6 +37,7 @@ const Search = () => {
     else {
       setMangaList([]);
       setIsLoading(false);
+      setNoMangaFound(false);
     }
     return () => controller.abort();
   }, [searchText]);
@@ -41,7 +47,7 @@ const Search = () => {
       <div className={styles.container}>
         <input placeholder='Search...' className={styles.searchInput} value={searchText} onChange={handleTextChange} />
       </div>
-      <MangaList mangaList={mangaList} isLoading={isLoading} />
+      <MangaList mangaList={mangaList} isLoading={isLoading} noMangaFound={noMangaFound} />
     </>
   );
 }

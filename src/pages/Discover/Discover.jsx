@@ -15,7 +15,6 @@ const Discover = () => {
   const [isLoadingRecentlyUpdated, setIsLoaingRecentlyUpdate] = useState(true);
 
   useEffect(() => {
-    console.log('ran');
     mangadexApi.getTopFollowedManga().then(res => {
       setTopFollowedManga(res.data);
       setIsLoadingTopFollowed(false);

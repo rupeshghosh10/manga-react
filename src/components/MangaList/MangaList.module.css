@@ -18,6 +18,15 @@
     margin-top: 4rem;
 }
 
+.noResult {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.noResult h2 {
+    color: var(--orange);
+}
+
 .mangaBox {
     height: 45vh;
     width: 100%;
