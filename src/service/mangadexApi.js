@@ -46,7 +46,7 @@ const getTopFollowedManga = async () => {
       contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[followedCount]': 'desc',
-      limit: 4
+      limit: 6
     }
   });
   const res = await req;
@@ -61,7 +61,7 @@ const getTopRevelantManga = async () => {
       contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[relevance]': 'desc',
-      limit: 4
+      limit: 6
     }
   });
   const res = await req;
@@ -76,7 +76,7 @@ const getRecentlyUpdateManga = async () => {
       contentRating: ['safe', 'suggestive'],
       includes: ['author', 'artist', 'cover_art'],
       'order[createdAt]': 'desc',
-      limit: 4
+      limit: 6
     }
   });
   const res = await req;
